@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="text-side"><h1>Venha conosco</h1>
+        <p>Por favor, complete todos os campos obrigatórios para que possamos processar sua solicitação de forma eficaz. As informações fornecidas serão tratadas com confidencialidade e apenas usadas para os fins descritos. Certifique-se de inserir dados válidos, especialmente em campos como e-mail e número de telefone, para que possamos entrar em contato se necessário.
+        </p>
+        </div>
+        <div class="form-side">
+            <div class="forms">
+                <form id="mult-step-form">
+                    <div class="form-step active">
+                    <label for="name" id="name"></label>
+                    <input type="text" id="name" placeholder="Nome" required>
+                    <br>    
+                    <label for="name" id="name"></label>
+                    <input type="text" id="name" placeholder="Sobrenome" required>
+                    <label for="estado">Qual o seu estado?</label>
+                    <select name="estado" id="estado">
+                        <option value="">Selecione</option>
+                        <option value="AC">Acre</option>
+                        <option value="AL">Alagoas</option>
+                        <option value="AP">Amapá</option>
+                        <option value="AM">Amazonas</option>
+                        <option value="BA">Bahia</option>
+                        <option value="CE">Ceará</option>
+                        <option value="DF">Distrito Federal</option>
+                        <option value="ES">Espírito Santo</option>
+                        <option value="GO">Goiás</option>
+                        <option value="MA">Maranhão</option>
+                        <option value="MT">Mato Grosso</option>
+                        <option value="MS">Mato Grosso do Sul</option>
+                        <option value="MG">Minas Gerais</option>
+                        <option value="PA">Pará</option>
+                        <option value="PB">Paraíba</option>
+                        <option value="PR">Paraná</option>
+                        <option value="PE">Pernambuco</option>
+                        <option value="PI">Piauí</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="RN">Rio Grande do Norte</option>
+                        <option value="RS">Rio Grande do Sul</option>
+                        <option value="RO">Rondônia</option>
+                        <option value="RR">Roraima</option>
+                        <option value="SC">Santa Catarina</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="SE">Sergipe</option>
+                        <option value="TO">Tocantins</option>
+                    </select>
+                    <br>
+                    <div class="buttons-container">
+                        <button type="button" class="next"><img src="img/seta-direita.png" alt="Arrow"></button>
+                    </div>
+                    </div>
+                    <div class="form-step">
+                    <input type="radio" name="estado_civil" id="casado">
+                    <label for="casado">Casado(a)</label>
+                    <br>
+                    <input type="radio" name="estado_civil" id="solteiro">
+                    <label for="solteiro">Solteiro(a)</label>
+                    <br>
+                    <input type="radio" name="estado_civil" id="viuvo">
+                    <label for="viuvo">Viúvo(a)</label>
+                    <br>
+                    <div class="buttons-container">
+                        <button type="button" class="prev"><img src="img/seta-esquerda.png" alt="Arrow"></button>
+                        <button type="button" class="next"><img src="img/seta-direita.png" alt="Arrow"></button>
+                    </div>
+                    </div>
+                    <div class="form-step">
+                    <input type="checkbox" name="linguagens[]" id="html" value="HTML">
+                    <label for="html">HTML</label>
+                    <br>
+                    <input type="checkbox" name="linguagens[]" id="css" value="CSS">
+                    <label for="css">CSS</label>
+                    <br>
+                    <input type="checkbox" name="linguagens[]" id="js" value="JavaScript">
+                    <label for="js">JavaScript</label>
+                    <br>
+                    <div class="buttons-container">
+                        <button type="button" class="prev"><img src="img/seta-esquerda.png" alt="Arrow"></button>       
+                        <input type="submit" id="name" value="Enviar">
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+</body>
+</html>
