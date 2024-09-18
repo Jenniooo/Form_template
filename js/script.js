@@ -34,3 +34,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     showStep(currentStep); // Show the first step initially
 });
+

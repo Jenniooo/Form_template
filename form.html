@@ -17,40 +17,20 @@
                 <form id="mult-step-form">
                     <div class="form-step active">
                     <label for="name" id="name"></label>
-                    <input type="text" id="name" placeholder="Nome" required>
+                    <input type="text" id="name" placeholder="Nome completo" required>
                     <br>    
-                    <label for="name" id="name"></label>
-                    <input type="text" id="name" placeholder="Sobrenome" required>
-                    <label for="estado">Qual o seu estado?</label>
-                    <select name="estado" id="estado">
+                    <label for="email" id="email"></label>
+                    <input type="email" id="email" placeholder="Email" required>
+                    <br>
+                    <label for="password" id="password"></label>
+                    <input type="password" id="password" placeholder="Senha" required>
+                    <br>
+                    <label for="sexo">Qual seu sexo?</label>
+                    <br>
+                    <select name="sexo" id="sexo">
                         <option value="">Selecione</option>
-                        <option value="AC">Acre</option>
-                        <option value="AL">Alagoas</option>
-                        <option value="AP">Amapá</option>
-                        <option value="AM">Amazonas</option>
-                        <option value="BA">Bahia</option>
-                        <option value="CE">Ceará</option>
-                        <option value="DF">Distrito Federal</option>
-                        <option value="ES">Espírito Santo</option>
-                        <option value="GO">Goiás</option>
-                        <option value="MA">Maranhão</option>
-                        <option value="MT">Mato Grosso</option>
-                        <option value="MS">Mato Grosso do Sul</option>
-                        <option value="MG">Minas Gerais</option>
-                        <option value="PA">Pará</option>
-                        <option value="PB">Paraíba</option>
-                        <option value="PR">Paraná</option>
-                        <option value="PE">Pernambuco</option>
-                        <option value="PI">Piauí</option>
-                        <option value="RJ">Rio de Janeiro</option>
-                        <option value="RN">Rio Grande do Norte</option>
-                        <option value="RS">Rio Grande do Sul</option>
-                        <option value="RO">Rondônia</option>
-                        <option value="RR">Roraima</option>
-                        <option value="SC">Santa Catarina</option>
-                        <option value="SP">São Paulo</option>
-                        <option value="SE">Sergipe</option>
-                        <option value="TO">Tocantins</option>
+                        <option value="AC">Feminino</option>
+                        <option value="AL">Masculino</option>
                     </select>
                     <br>
                     <div class="buttons-container">
@@ -80,11 +60,83 @@
                     <label for="css">CSS</label>
                     <br>
                     <input type="checkbox" name="linguagens[]" id="js" value="JavaScript">
-                    <label for="js">JavaScript</label>
+                    <label for="js">JS</label>
                     <br>
                     <div class="buttons-container">
                         <button type="button" class="prev"><img src="img/seta-esquerda.png" alt="Arrow"></button>       
                         <input type="submit" id="name" value="Enviar">
+                        <script>
+                            const formSteps = document.querySelectorAll('.form-step');
+const nextButtons = document.querySelectorAll('.next');
+const prevButtons = document.querySelectorAll('.prev');
+const form = document.getElementById('mult-step-form');
+
+let currentStep = 0;
+
+nextButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const currentFormStep = formSteps[currentStep];
+    const inputs = currentFormStep.querySelectorAll('input, select, textarea');
+    let isValid = true;
+
+    inputs.forEach((input) => {
+      if (input.required && !input.value) {
+        isValid = false;
+        input.classList.add('error');
+      } else {
+        input.classList.remove('error');
+      }
+    });
+
+    if (!isValid) {
+      alert('Você deve preencher todos os campos obrigatórios antes de avançar para a próxima etapa.');
+    } else {
+      currentStep++;
+      showCurrentStep();
+    }
+  });
+});
+
+prevButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    if (currentStep > 0) {
+      currentStep--;
+      showCurrentStep();
+    }
+  });
+});
+
+form.addEventListener('submit', (e) => {
+  let isValid = true;
+
+  formSteps.forEach((step) => {
+    const inputs = step.querySelectorAll('input, select, textarea');
+
+    inputs.forEach((input) => {
+      if (input.required && !input.value) {
+        isValid = false;
+        input.classList.add('error');
+      } else {
+        input.classList.remove('error');
+      }
+    });
+  });
+
+  if (!isValid) {
+    e.preventDefault();
+    alert('Você deve preencher todos os campos obrigatórios antes de enviar o formulário.');
+  } else {
+    // Não faça nada quando o usuário clica em "OK" no alerta
+  }
+});
+
+function showCurrentStep() {
+  formSteps.forEach((step) => {
+    step.style.display = 'none';
+  });
+  formSteps[currentStep].style.display = 'block';
+}
+                          </script>
                     </div>
                 </div>
                 </form>
